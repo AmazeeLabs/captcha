@@ -316,7 +316,7 @@ function captcha_skip_token_validation($form_state) {
   $skip_validation = false; // general case
   if (!empty($form_state['triggering_element']['#limit_validation_errors'])) {
     $skip_validation = true; // set it to FALSE if captcha is inside the list
-    foreach($form_state['#limit_validation_errors'] as $section) {
+    foreach($form_state['triggering_element']['#limit_validation_errors'] as $section) {
       if (isset($section[0]) && $section[0] == 'captcha') {
         $skip_validation = false;
       }
